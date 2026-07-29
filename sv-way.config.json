@@ -1,0 +1,25 @@
+{
+  "_note": "Per-repo inputs for the SV Way compliance checker (canonical copy: Stadium-Ventures/sv-registry scripts/compliance/sv-way-check.cjs). Authored 2026-07-29 (WP1 role-declaration pass); values established by reading this repo's files, not inference.",
+  "repo": "Stadium-Ventures/draft-slot-tracker",
+  "roles": {
+    "index.html": "surface",
+    "data.csv": "write-home"
+  },
+  "_roles_why": "Per CLAUDE.md and sv-app.json: a static single-page tracker (index.html fetches data.csv client-side; no framework, no build, no crons). data.csv is a hand-maintained snapshot of MLB draft signings 2018-2026 (~5,500 rows) that exists nowhere else in the SV ecosystem — this repo is its home. The 2026 rows were seeded from the MLB Stats API draft feed joined with sv-draft-day's composite.json and are refreshed by a manual re-pull/re-merge (per sv-app.json runbook). The page, CSV export, and make-pdf.js PDF output are surface artifacts.",
+  "canon_trees": [
+    "data.csv"
+  ],
+  "write_door": null,
+  "upstream": {
+    "repo": null,
+    "mechanism": "Industry-wide draft-signing data from the MLB Stats API draft feed + agency mapping from Stadium-Ventures/sv-draft-day public/data/composite.json (manual re-pull/re-merge, no script). Not sourced from sv-registry."
+  },
+  "canon_doc": "THE-SV-WAY.md",
+  "canon_doc_home": false,
+  "hub_registration": "sv-app.json",
+  "_open_questions": [
+    "data.csv is edited by hand and committed directly — no governed writer/write door exists.",
+    "The source/export behind the 2018-2025 historical rows is undocumented in-repo (per sv-app.json notes); refreshing them would require re-deriving that pull.",
+    "Player names here are industry-wide draft data, not SV client facts specifically; whether any rows about SV clients require resolution against sv-registry canon (read duty) is unassessed."
+  ]
+}
